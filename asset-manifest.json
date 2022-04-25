@@ -1,0 +1,27 @@
+{
+  "files": {
+    "main.css": "/static/css/main.2b7027f9.chunk.css",
+    "main.js": "/static/js/main.e3000ba6.chunk.js",
+    "main.js.map": "/static/js/main.e3000ba6.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.a219aeb0.js",
+    "runtime-main.js.map": "/static/js/runtime-main.a219aeb0.js.map",
+    "static/js/2.64416db4.chunk.js": "/static/js/2.64416db4.chunk.js",
+    "static/js/2.64416db4.chunk.js.map": "/static/js/2.64416db4.chunk.js.map",
+    "index.html": "/index.html",
+    "precache-manifest.6ff8136d5ac5ca1fa7a2fedb9d327d21.js": "/precache-manifest.6ff8136d5ac5ca1fa7a2fedb9d327d21.js",
+    "service-worker.js": "/service-worker.js",
+    "static/css/main.2b7027f9.chunk.css.map": "/static/css/main.2b7027f9.chunk.css.map",
+    "static/js/2.64416db4.chunk.js.LICENSE.txt": "/static/js/2.64416db4.chunk.js.LICENSE.txt",
+    "static/media/agriculture.jpg": "/static/media/agriculture.d6866835.jpg",
+    "static/media/avatar2.jpg": "/static/media/avatar2.3e6595fc.jpg",
+    "static/media/App.css": "/static/media/coffeelap.78eaa187.jpg",
+    "static/media/grasshopper.png": "/static/media/grasshopper.af85c9fd.png",
+    "static/media/mwdiary.png": "/static/media/mwdiary.b6a0eae6.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.a219aeb0.js",
+    "static/js/2.64416db4.chunk.js",
+    "static/css/main.2b7027f9.chunk.css",
+    "static/js/main.e3000ba6.chunk.js"
+  ]
+}
