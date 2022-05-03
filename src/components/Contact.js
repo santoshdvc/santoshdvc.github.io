@@ -1,4 +1,5 @@
 import React from "react";
+import {useState} from "react";
 import { makeStyles, withStyles } from "@material-ui/core/styles";
 import Box from "@material-ui/core/Box";
 import TextField from "@material-ui/core/TextField";
@@ -7,6 +8,15 @@ import Grid from "@material-ui/core/Grid";
 import Button from "@material-ui/core/Button";
 
 import Send from "@material-ui/icons/Send";
+
+import emailjs from "emailjs-com";
+
+const EMAILKEY=process.env.REACT_APP_EMAILJS_KEY
+const SERVICE_ID= process.env.REACT_APP_TEMPLATE_KEY
+const TEMPLATE_ID= process.env.REACT_APP_SERVICE_KEY
+
+
+
 
 const useStyles = makeStyles((theme) => ({
   contactContainer: {
@@ -36,7 +46,7 @@ const useStyles = makeStyles((theme) => ({
   field: {
     margin: "1rem 0rem",
   },
-}));
+}));  
 
 const InputField = withStyles({
   root: {
@@ -62,7 +72,11 @@ const InputField = withStyles({
 })(TextField);
 
 const Contact = () => {
-  const classes = useStyles();
+const classes = useStyles();
+const [fromEmail, setFromEmail] = useState("");
+const [fromName, setFromName] = useState("");
+const [toName, setToName] = useState("Santosh Kumar Behera");
+const [message, setMessage] = useState("");
   return (
     <Box component="div" className={classes.contactContainer}>
       <Grid container justify="center">
@@ -73,12 +87,16 @@ const Contact = () => {
           <InputField
             fullWidth={true}
             label="Name"
+            value={fromName}
+            onChange={(e) => setFromName(e.target.value)}
             variant="outlined"
             inputProps={{ className: classes.input }}
           />
           <InputField
             fullWidth={true}
             label="Email"
+            value={fromEmail}
+            onChange={(e) => setFromEmail(e.target.value)}
             variant="outlined"
             inputProps={{ className: classes.input }}
             className={classes.field}
@@ -87,6 +105,8 @@ const Contact = () => {
             fullWidth={true}
             label="Message"
             variant="outlined"
+            value= {message}
+            onChange={(e) => setMessage(e.target.value)}
             multiline
             rows={4}
             inputProps={{ className: classes.input }}
@@ -95,6 +115,13 @@ const Contact = () => {
             variant="outlined"
             fullWidth={true}
             endIcon={<Send />}
+            onClick={() => {
+              emailjs.send(SERVICE_ID, TEMPLATE_ID, {'from_name':fromName, 'from_email':fromEmail, 'to_name':toName, 'message':message}, EMAILKEY)
+              .then(function(response) {
+                console.log('SUCCESS!', response.status, response.text);
+             }, function(error) {
+                console.log('FAILED...', error);
+             })}}
             className={classes.button}
           >
             Contact Me
